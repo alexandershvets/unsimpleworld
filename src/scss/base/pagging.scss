@@ -1,0 +1,78 @@
+.pagging {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  // .pagging__arrow
+  &__arrow {
+    @media (max-width: $mobileSmall) {
+      width: rem(20);
+      height: rem(20);
+      background: url('@img/icons/arrow.png') center / contain no-repeat !important;
+    }
+    // .pagging__arrow_prev
+    &_prev {
+      // margin-right: rem(38);
+      @include adaptiveValue('margin-right', 38, 20);
+      @media (max-width: $mobileSmall) {
+        margin-right: rem(10);
+      }
+    }
+    // .pagging__arrow_next
+    &_next {
+      // margin-left: rem(38);
+      @include adaptiveValue('margin-left', 38, 20);
+      transform: rotate(180deg);
+      @media (max-width: $mobileSmall) {
+        margin-left: rem(10);
+      }
+    }
+    // .pagging__arrow_disabled
+    &_disabled {
+      opacity: 0.2;
+      filter: grayscale(1);
+      @media (any-hover: hover) {
+        &:hover {
+          opacity: 0.2;
+          filter: grayscale(1);
+        }
+      }
+    }
+  }
+  // .pagging__list
+  &__list {
+    display: flex;
+    li {
+      &:not(:last-child) {
+        margin-right: rem(10);
+        @media (max-width: $mobileSmall) {
+          margin-right: rem(1);
+        }
+      }
+    }
+  }
+  // .pagging__item
+  &__item {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: rem(50);
+    height: rem(50);
+    background: url('@img/icons/pagging-dott.png') center / contain no-repeat;
+    color: #9a999a;
+    @media (max-width: $mobileSmall) {
+      width: rem(40);
+      height: rem(40);
+    }
+    &._active {
+      filter: brightness(216%) drop-shadow(0px 0px 10px darken($purpleColor, 10%));
+    }
+    @media (any-hover: hover) {
+      &:hover {
+        filter: brightness(216%) drop-shadow(0px 0px 10px darken($blueColor, 10%));
+        &._active {
+          filter: brightness(216%) drop-shadow(0px 0px 10px darken($purpleColor, 10%));
+        }
+      }
+    }
+  }
+}
